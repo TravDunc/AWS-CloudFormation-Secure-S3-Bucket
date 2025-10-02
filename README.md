@@ -79,5 +79,3 @@ You should see something like the output shown below.
     "Prefix": null
 }
 ```
-
-### Verify that the Bucket is Securely Configured
