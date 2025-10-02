@@ -1,6 +1,19 @@
 # AWS-CloudFormation-Secure-S3-Bucket
-CloudFormation YAML template and instructions to deploy secure S3 buckets (restricts public access, encrypted with AES-256)
-
+This repository contains a CloudFormation YAML template and instructions to deploy secure S3 buckets (restricts public access, encrypted with AES-256).
+<br/>
+### Attribution - YAML Template
+The YAML template file was copied from AJ Yawn's "GRC Engineering for AWS" repository.
+<br/>
+User Name: [ajy0127](https://github.com/ajy0127)
+<br/>
+Repository: https://github.com/ajy0127/thegrcengineeringbook
+<br/>
+File in Original Repository: [secure-bucket.yml](https://github.com/ajy0127/thegrcengineeringbook/blob/master/chapter-5/secure-bucket.yml)
+<br/>
+<br/>
+*The YAML file has been modified--it now includes comments explaining elements of the template. 
+<br/>
+<br/>
 # Initial Set-up
 You'll need your own AWS account and the AWS CLI. You can use the AWS Management Console (GUI) to accomplish the same actions, but the AWS CLI will allow you to deploy resources in a way that is quick, efficient, and (eventually) intuitive.
 
