@@ -14,26 +14,25 @@ File in Original Repository: [secure-bucket.yml](https://github.com/ajy0127/theg
 *The YAML file has been modified--it now includes comments explaining elements of the template. 
 <br/>
 <br/>
-# Initial Set-up
+# Step 1 - Initial Set-up
 ```diff
 - Read this section before proceeding.
 ```
 You'll need your own AWS account and the AWS CLI. You can use the AWS Management Console (GUI) in a web browser to accomplish the same actions, but the AWS CLI will allow you to deploy resources in a way that is quick, efficient, and (eventually) intuitive.
-
-If you have an AWS account and you've configured the AWS CLI, you can proceed to Step 1.
-
 ## Create an AWS Account
 Follow the instructions here: https://aws.amazon.com/resources/create-account/
-
+<br/>
 ## Configure AWS CLI on your device.
 Go here for instructions: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
 <br/>
 <br/>
-# Deployment Instructions
-## Step 1 - OBTAIN TEMPLATE
+Once you've signed up for an AWS account and configured the AWS CLI, you can proceed to Step 2.
+<br/>
+<br/>
+# Step 2 - OBTAIN TEMPLATE
 Download the [secure-bucket.yml](https://github.com/TravDunc/AWS-CloudFormation-Secure-S3-Bucket/blob/main/secure-bucket.yml) file from this repository.
 This file will be used to let AWS know how you want to configure your S3 bucket.
-## Step 2 - DEPLOY A SECURE S3 BUCKET
+# Step 3 - DEPLOY A SECURE S3 BUCKET
 Each line of the YAML file contains information (in key-value pairs) that tell AWS how the resource will be configured and deployed.
 <br/>
 <br/>
@@ -49,17 +48,16 @@ C:\>aws cloudformation deploy --template-file C:\File-Path\secure-bucket.yml --s
 
 <br/>
 
-## Step 3 - VERIFY
-<br/>
-After we've deployed a resource, we should have a mechanism in place to ensure that it was deployed properly. AWS has services that can be used to detect and remediate non-compliant configurations. However, for the purposes of this lab, we will  just use manual AWS CLI commands. 
-### Verify that the Bucket was Deployed
+# Step 4 - VERIFY THE DEPLOYMENT
+After deploying a resource, we should have a mechanism in place to ensure that it was deployed properly. AWS has services that can be used to detect and remediate non-compliant configurations. However, for the purposes of this lab, we will just use manual AWS CLI commands. 
+
+## Verify that the S3 Bucket was Deployed
+
 Use the AWS CLI to enter the following command:
-<br/>
 <br/>
 ```diff
 C:\>aws s3api list-buckets
 ```
-<br/>
 <br/>
 You should see something like the output shown below.
 
