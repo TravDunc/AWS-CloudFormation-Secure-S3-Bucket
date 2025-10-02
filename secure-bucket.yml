@@ -1,0 +1,37 @@
+# ATTRIBUTION: This template was originally obtained from AJ Yawn's GRC Engineering GitHub repository: https://github.com/ajyawn/grc-engineering
+# This template has been modified to add comments.
+
+# Identifies the CloudFormation format to be used by AWS - '2010-09-09' is the latest version.
+AWSTemplateFormatVersion: '2010-09-09'
+# Explanation of the template.
+Description: Creates a secure S3 bucket with public access blocked and encryption enabled.
+
+# Defines resources to be created.
+Resources:
+# Defines the category of the resource that will be created.
+  SecureBucket:
+    # Defines the type of resource that will be created.
+    Type: AWS::S3::Bucket
+    # Contains the resource properties.
+    Properties:
+      # Note: S3 bucket names must be globally unique. 
+      # You may need to change this bucket name to deploy the stack successfully.
+      BucketName: securebucketname
+      # This is used to set Access Control List (ACL) flags for public access to the S3 bucket 
+      PublicAccessBlockConfiguration:
+        # This flag blocks ACLs which would allow public access to the S3 bucket
+        BlockPublicAcls: true
+        # This flag blocks S3 bucket policies which would allow public access to the S3 bucket
+        BlockPublicPolicy: true
+        # This flag tells AWS to ignore any ACLs that allow public access to the S3 bucket
+        IgnorePublicAcls: true
+        # This flag restricts public access to the S3 bucket
+        RestrictPublicBuckets: true
+      # This section configures encryption for the S3 bucket
+      BucketEncryption:
+        # This section contains configuration options related to server-side encryption
+        ServerSideEncryptionConfiguration:
+          # This section configures the default encryption for the S3 bucket
+          - ServerSideEncryptionByDefault:
+              # This section configures the encryption algorithm to be used for the S3 bucket
+              SSEAlgorithm: AES256
