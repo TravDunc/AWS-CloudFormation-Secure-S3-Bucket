@@ -6,6 +6,16 @@ Secure storage is an important part of a larger security program. The steps in t
 ✅ Encryption enabled (protects data at rest)  
 ✅ CloudFormation deployment (infrastructure-as-code for repeatability/consistency)
 
+Insecurely configured storage presents a critical vulnerability that has resulted in multiple high-profile security breaches. Publicly accessible cloud storage is an open door for your company's sensitive data. All S3 buckets that could contain sensitive/private/proprietary data should only be accessible by authorized individuals.
+
+IaC establishes repeatable deployments that maintain the same configuration every time they're deployed.
+
+This template shows how infrastructure-as-code (IaC) can be used to ensure security baselines at scale, support automated compliance validation, and reduce the risk of configuration drift--these are all elemnts of a mature vulnerability management program. 
+
+To demonstrate true program maturity, your environment should continuously monitor resource configurations, identify policy violations, detect threats, scan for vulnerabilities, log any changes in the environment, have tools for monitoring and aggregating security info (i.e., a security dashboard), and tools for providing reports/information to auditors.
+
+I may create more repos in the future that demonstrate how one or two of these concepts support each other.
+
 ---
 
 # Step 1 - Initial Set-up
