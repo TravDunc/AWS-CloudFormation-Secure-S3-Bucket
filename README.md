@@ -157,7 +157,7 @@ This shows the AWS region where your bucket is deployed.
 
 ---
 
-**SUMMARY OF STEPS**<br/>
-✅ Installed necessary tools, acquired cloud account<br/>
-✅ Used AWS CLI to **deploy** a CloudFormation template from a YAML template<br/>
-✅ Used AWS CLI to **verify** secure configuration -- this provided assurance that the storage was deployed with the correct security attributes!
+# SUMMARY OF STEPS<br/>
+✅ **PREPARED** our tools by acquiring an AWS account and installing the AWS CLI<br/>
+✅ **DEPLOYED** a CloudFormation template using the AWS CLI and a YAML file<br/>
+✅ **VERIFIED** secure configuration using the AWS CLI -- this last step provided assurance that our storage was deployed with our intended secure configuration!
