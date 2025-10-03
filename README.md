@@ -1,16 +1,12 @@
 # AWS-CloudFormation-Secure-S3-Bucket
 This repository contains a CloudFormation YAML template and instructions to deploy secure S3 buckets (restricts public access, encrypted with AES-256).
 
-### Attribution - YAML Template
-The YAML template was copied from AJ Yawn's "GRC Engineering for AWS" repository.
+Secure storage is an important part of a larger security program. The steps in this README ensure that:<br/>
+✅ Public access blocked (prevents accidental data exposure)  
+✅ Encryption enabled (protects data at rest)  
+✅ CloudFormation deployment (infrastructure-as-code for repeatability/consistency)
 
-User Name: [ajy0127](https://github.com/ajy0127)
-
-Repository: https://github.com/ajy0127/thegrcengineeringbook
-
-File in Original Repository: [secure-bucket.yml](https://github.com/ajy0127/thegrcengineeringbook/blob/master/chapter-5/secure-bucket.yml)
-
-*The YAML file has been modified--it now includes comments explaining elements of the template. 
+---
 
 # Step 1 - Initial Set-up
 
@@ -28,11 +24,11 @@ Go here for instructions: https://docs.aws.amazon.com/cli/latest/userguide/cli-c
 
 Once you've signed up for an AWS account and configured the AWS CLI, you can proceed to Step 2.
 
-# Step 2 - OBTAIN TEMPLATE
+# Step 2 - DOWNLOAD TEMPLATE
 Download the [secure-bucket.yml](https://github.com/TravDunc/AWS-CloudFormation-Secure-S3-Bucket/blob/main/secure-bucket.yml) file from this repository.
 The information in this file will let AWS know how you want to configure your S3 bucket.
 
-# Step 3 - DEPLOY A SECURE S3 BUCKET
+# Step 3 - DEPLOY SECURE S3 BUCKET
 Each line of the YAML file contains information (in key-value pairs) that tell AWS how the resource will be configured and deployed.
 
 Before proceeding, make sure you have properly [configured your AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). If you've configured your tech stack correctly, you should be able to use the AWS CLI to create an S3 bucket from your YAML template file.
@@ -48,7 +44,7 @@ C:\>aws cloudformation deploy --template-file C:\File-Path\secure-bucket.yml --s
 <br/>
 <br/>
 
-# Step 4 - VERIFY THE DEPLOYMENT
+# Step 4 - VERIFY DEPLOYMENT
 After deploying a resource, we should have a mechanism in place to ensure that it was deployed properly. AWS has services that can be used to detect and remediate non-compliant configurations. However, for the purposes of this lab, we will just use manual AWS CLI commands. 
 
 ## Verify that the S3 Bucket was Deployed
@@ -142,13 +138,7 @@ This shows the AWS region where your bucket is deployed.
 
 ---
 
-**What Just Happened?**
-We...
-✅ Installed necessary tools and acquired a cloud account
-✅ Used the AWS CLI to **deploy** a CloudFormation template from a YAML template
-✅ Used the AWS CLI to **verify** configuration -- this provided assurance that the storage was deployed with the correct security attributes!
-
-****
-✅ Public access blocked (prevents accidental data exposure)  
-✅ Encryption enabled (protects data at rest)  
-✅ CloudFormation deployment (infrastructure-as-code for repeatability/consistency)
+**SUMMARY OF STEPS**
+✅ Installed necessary tools, acquired cloud account
+✅ Used AWS CLI to **deploy** a CloudFormation template from a YAML template
+✅ Used AWS CLI to **verify** secure configuration -- this provided assurance that the storage was deployed with the correct security attributes!
