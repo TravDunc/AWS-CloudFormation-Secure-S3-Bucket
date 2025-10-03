@@ -2,9 +2,9 @@
 This repository contains a CloudFormation YAML template and instructions to deploy secure S3 buckets (restricts public access, encrypted with AES-256).
 
 Secure storage is an important part of a larger security program. The steps in this README ensure that:<br/>
-✅ Public access blocked (prevents accidental data exposure)  
-✅ Encryption enabled (protects data at rest)  
-✅ CloudFormation deployment (infrastructure-as-code for repeatability/consistency)
+✅ Public access is blocked (prevents accidental data exposure)  
+✅ Encryption is enabled (protects data at rest)  
+✅ CloudFormation is used to standardize deployment (infrastructure-as-code for repeatability/consistency)
 
 Insecurely configured storage presents a critical vulnerability that has resulted in multiple high-profile security breaches. Publicly accessible cloud storage is an open door for your company's sensitive data. All S3 buckets that could contain sensitive/private/proprietary data should only be accessible by authorized individuals.
 
@@ -12,9 +12,18 @@ IaC establishes repeatable deployments that maintain the same configuration ever
 
 This template shows how infrastructure-as-code (IaC) can be used to ensure security baselines at scale, support automated compliance validation, and reduce the risk of configuration drift--these are all elemnts of a mature vulnerability management program. 
 
-To demonstrate true program maturity, your environment should continuously monitor resource configurations, identify policy violations, detect threats, scan for vulnerabilities, log any changes in the environment, have tools for monitoring and aggregating security info (i.e., a security dashboard), and tools for providing reports/information to auditors.
+To demonstrate true program maturity, your environment should include:
+- **Continuous monitoring** of resource configurations and policy violations
+- **Threat detection and vulnerability scanning** across the infrastructure
+- **Change logging** to maintain audit trails
+- **Security dashboards** for aggregating and visualizing security posture
+- **Compliance reporting** tools for auditors and stakeholders
 
-I may create more repos in the future that demonstrate how one or two of these concepts support each other.
+**Future Enhancements:**
+This repository demonstrates one element of cloud security. I plan to create additional repositories showing how these concepts integrate:
+- Automated vulnerability scanning → remediation workflow
+- Security baseline enforcement with AWS Config/Security Hub
+- Compliance dashboard aggregating multi-account security posture
 
 ---
 
@@ -148,7 +157,7 @@ This shows the AWS region where your bucket is deployed.
 
 ---
 
-**SUMMARY OF STEPS**
+**SUMMARY OF STEPS**<br/>
 ✅ Installed necessary tools, acquired cloud account
 ✅ Used AWS CLI to **deploy** a CloudFormation template from a YAML template
 ✅ Used AWS CLI to **verify** secure configuration -- this provided assurance that the storage was deployed with the correct security attributes!
