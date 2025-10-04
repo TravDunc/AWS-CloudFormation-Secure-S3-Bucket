@@ -146,7 +146,7 @@ Expected output:
 - `SSEAlgorithm` should be `"AES256"`
 - This confirms all objects uploaded to the bucket will be encrypted at rest
 
-## 💡 BONUS -- REGION CHECK
+## BONUS VERIFICATION -- REGION CHECK
 For a complete overview of your bucket's configuration, you can also run this command:
 
 ```
@@ -157,18 +157,13 @@ This shows the AWS region where your bucket is deployed. A cloud provider's "reg
 
 You won't see an S3 bucket if it's unexpectedly deployed in a separate region. So this is a good troubleshooting step if you deploy your S3 bucket but cannot locate it with the AWS CLI commands we used to verify deployment.
 
-From a security perspective, it's VERY important to know where your resources are deployed. If an S3 bucket is unexpectedly deployed in a separate region, it might not have the cloud storage controls you've established. This presents a risk to the business because the storage could contain sensitive information, or unauthorized users could use the storage and increase the business's AWS costs. **You can't protect something if you don't know it exists.**
+From a security perspective, it's VERY important to know where your resources are deployed. If an S3 bucket is unexpectedly deployed in a separate region, it might not have the cloud storage controls you've established. Presenting a risk through exposed data or unexpected costs. **You can't protect something if you don't know it exists.**
 
-<details>
-<summary><b>📖 Example Scenario (click to expand / collapse)</b></summary>
+<b>Example Scenario</b>
 
-Your security program protects resources in us-east-1 (data centers in Northern Virginia) and us-east-2 (Ohio). A cloud admin manually provisions an S3 bucket in us-west-1 (Northern California) without using your secure CloudFormation template. The bucket is publicly accessible and unencrypted.
-
-The security program is developing in its maturity--unused AWS regions haven't been disabled yet and the security team is not aware of the new S3 bucket.
-
-An unauthorized user accesses the public bucket and downloads proprietary information that gave your business a competitive edge. After the breach, the company loses that advantage and profits decline.
-
-</details>
+> Your security program protects resources in us-east-1 (data centers in Northern Virginia) and us-east-2 (Ohio). A cloud admin manually provisions an S3 bucket in us-west-1 (Northern California) without using your secure CloudFormation template. The bucket is publicly accessible and unencrypted.
+> Unused AWS regions haven't been disabled yet and the security team is not aware of the new S3 bucket.
+> An unauthorized user accesses the public bucket and downloads proprietary information that gave your business a competitive edge. After the breach, the company loses that advantage and profits decline.
 
 Strive to know about your assets. Keep track of what you have, where it is, and how it's configured.
 
