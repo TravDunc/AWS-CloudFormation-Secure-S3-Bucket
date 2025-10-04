@@ -10,13 +10,13 @@ Insecurely configured storage presents a critical vulnerability that has resulte
 
 IaC establishes repeatable deployments that maintain the same configuration every time they're deployed.
 
-This template shows how infrastructure-as-code (IaC) can be used to ensure security baselines at scale, support automated compliance validation, and reduce the risk of configuration drift--these are all elemnts of a mature vulnerability management program. 
+This template shows how infrastructure-as-code (IaC) can be used to ensure security baselines at scale, support automated compliance validation, and reduce the risk of configuration drift--these are all elements of a mature vulnerability management program. 
 
 To demonstrate true program maturity, your environment should include:
 - **Continuous monitoring** of resource configurations and policy violations
 - **Threat detection and vulnerability scanning** across the infrastructure
 - **Change logging** to maintain audit trails
-- **Security dashboards** for aggregating and visualizing security posture
+- **Security dashboard** for aggregating and visualizing security posture
 - **Compliance reporting** tools for auditors and stakeholders
 
 **Future Enhancements:**
@@ -146,14 +146,31 @@ Expected output:
 - `SSEAlgorithm` should be `"AES256"`
 - This confirms all objects uploaded to the bucket will be encrypted at rest
 
-## Comprehensive Bucket Configuration Check
-For a complete overview of your bucket's configuration, you can also run:
+## 💡 BONUS -- REGION CHECK
+For a complete overview of your bucket's configuration, you can also run this command:
 
 ```
 C:\>aws s3api get-bucket-location --bucket securebucket-cybertrav
 ```
 
-This shows the AWS region where your bucket is deployed.
+This shows the AWS region where your bucket is deployed. A cloud provider's "regions" are based on the locations of their various data centers.
+
+You won't see an S3 bucket if it's unexpectedly deployed in a separate region. So this is a good troubleshooting step if you deploy your S3 bucket but cannot locate it with the AWS CLI commands we used to verify deployment.
+
+From a security perspective, it's VERY important to know where your resources are deployed. If an S3 bucket is unexpectedly deployed in a separate region, it might not have the cloud storage controls you've established. This presents a risk to the business because the storage could contain sensitive information, or unauthorized users could use the storage and increase the business's AWS costs. **You can't protect something if you don't know it exists.**
+
+<details>
+<summary><b>📖 Example Scenario (click to expand / collapse)</b></summary>
+
+Your security program protects resources in us-east-1 (data centers in Northern Virginia) and us-east-2 (Ohio). A cloud admin manually provisions an S3 bucket in us-west-1 (Northern California) without using your secure CloudFormation template. The bucket is publicly accessible and unencrypted.
+
+The security program is developing in its maturity--unused AWS regions haven't been disabled yet and the security team is not aware of the new S3 bucket.
+
+An unauthorized user accesses the public bucket and downloads proprietary information that gave your business a competitive edge. After the breach, the company loses that advantage and profits decline.
+
+</details>
+
+Strive to know about your assets. Keep track of what you have, where it is, and how it's configured.
 
 ---
 
